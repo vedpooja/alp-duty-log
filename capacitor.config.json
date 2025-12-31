@@ -1,0 +1,10 @@
+
+{
+  "appId": "com.alpdutylog.app",
+  "appName": "ALP Duty Log",
+  "webDir": ".",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  }
+}

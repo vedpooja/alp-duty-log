@@ -1,0 +1,7 @@
+{
+  "name": "ALP Duty Log",
+  "description": "An offline-first digital logbook for Indian Railway Assistant Loco Pilots to record working, spare, periodic rest, and leave duties. Export records as .xlsx files for easy editing in Google Sheets or Excel.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
