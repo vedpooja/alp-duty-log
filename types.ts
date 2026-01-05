@@ -53,7 +53,7 @@ export interface DutyRecord {
   locoNumber?: string;
   locoClass?: string;
   shed?: string;
-  hood?: 'SH' | 'LH';
+  hood?: 'SH' | 'LH' | 'CAB1' | 'CAB2';
   
   // Working specific - Timing
   departureTime?: string;
