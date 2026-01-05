@@ -52,26 +52,33 @@ export const exportToExcel = async (records: DutyRecord[], mode: 'download' | 's
     const dateStr = new Date().toISOString().split('T')[0];
     const fileName = `ALP_DutyLog_${dateStr}.xlsx`;
 
-    if (mode === 'share') {
-      const wbout = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-      const blob = new Blob([wbout], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
-      const file = new File([blob], fileName, { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
 
-      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-        await navigator.share({
-          files: [file],
-          title: 'ALP Duty Log Upload',
-          text: `Upload your duty records to Google Drive or Sheets.`,
-        });
-      } else {
-        // Fallback to download if sharing isn't supported
-        XLSX.writeFile(workbook, fileName);
-        alert(`Sharing not supported on this browser. File has been downloaded as: ${fileName}`);
-      }
-    } else {
-      // Direct download mode
-      XLSX.writeFile(workbook, fileName);
-    }
+if (mode === 'share' && isMobile && navigator.share) {
+  try {
+    const wbout = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+    const blob = new Blob([wbout], {
+      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    });
+
+    const file = new File([blob], fileName, {
+      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    });
+
+    await navigator.share({
+      files: [file],
+      title: 'ALP Duty Log',
+      text: 'Duty records export'
+    });
+  } catch (shareErr) {
+    console.warn('Share failed, falling back to download', shareErr);
+    XLSX.writeFile(workbook, fileName);
+  }
+} else {
+  
+  XLSX.writeFile(workbook, fileName);
+}
+
   } catch (err) {
     console.error('Export failed', err);
     alert('An error occurred during export. Please check your data and try again.');
