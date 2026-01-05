@@ -186,7 +186,7 @@ const WorkingDutyForm: React.FC<Props> = ({ onSave, onBack, initialData }) => {
             <Input label="Train Number" placeholder="12904" value={formData.trainNumber} onChange={(v: string) => setFormData({...formData, trainNumber: v})} />
             <Input label="Loco Class" placeholder="WAP-7" value={formData.locoClass} onChange={(v: string) => setFormData({...formData, locoClass: v})} />
             <Input label="Shed" placeholder="GZB" value={formData.shed} onChange={(v: string) => setFormData({...formData, shed: v})} />
-            <Select label="Hood" options={['SH', 'LH']} value={formData.hood} onChange={(v: string) => setFormData({...formData, hood: v as any})} />
+            <Select label="Hood" options={['SH', 'LH','CAB1','CAB2']} value={formData.hood} onChange={(v: string) => setFormData({...formData, hood: v as any})} />
           </div>
           <Input label="Section" placeholder="e.g. NDLS - BCT" value={formData.section} onChange={(v: string) => setFormData({...formData, section: v})} />
         </Accordion>
