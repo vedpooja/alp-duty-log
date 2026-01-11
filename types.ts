@@ -88,6 +88,8 @@ export interface DutyRecord {
   markerLightRemark?: string;
   flasherLightOk?: boolean;
   flasherLightRemark?: string;
+  GuageLightOk?: boolean;
+  GuageLightRemark?: string;
 
   // Working specific - Control Panel / Safety (Section G)
   fireExtinguisherCount?: string;
