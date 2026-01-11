@@ -183,8 +183,8 @@ const WorkingDutyForm: React.FC<Props> = ({ onSave, onBack, initialData }) => {
           <div className="grid grid-cols-2 gap-3">
             <Input label="Date" type="date" value={formData.date} onChange={(v: string) => setFormData({...formData, date: v})} />
             <Input label="Loco Number" placeholder="30245" value={formData.locoNumber} onChange={(v: string) => setFormData({...formData, locoNumber: v})} />
-            <Input label="Schedule Done" type="date" value={formData.issuedDate} onChange={(v: string) => setFormData({...formData, DoneDate: v})} />
-            <Input label="Schedule Due" type="date" value={formData.validUptoDate} onChange={(v: string) => setFormData({...formData, DueDate: v})} />
+            <Input label="Schedule Done" type="date" value={formData.issuedDate} onChange={(v: string) => setFormData({...formData, issuedDate: v})} />
+            <Input label="Schedule Due" type="date" value={formData.validUptoDate} onChange={(v: string) => setFormData({...formData, validUptoDate: v})} />
             <Input label="Train Number" placeholder="12904" value={formData.trainNumber} onChange={(v: string) => setFormData({...formData, trainNumber: v})} />
             <Input label="Loco Class" placeholder="WAP-7" value={formData.locoClass} onChange={(v: string) => setFormData({...formData, locoClass: v})} />
             <Input label="Shed" placeholder="GZB" value={formData.shed} onChange={(v: string) => setFormData({...formData, shed: v})} />
