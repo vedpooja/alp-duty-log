@@ -66,6 +66,7 @@ export interface DutyRecord {
   validUptoDate?: string;
   fsdNo?: string;
   detonatorExpiry?: string;
+  BPCType?: string;
 
   // Working specific - Oil (Section E)
   hsdReceived?: number;
